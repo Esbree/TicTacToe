@@ -13,6 +13,12 @@
   background-color: lightblue;
   margin-top: 24px;
   margin-bottom: 24px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.gameboard > div {
+  border: 1px solid red;
 }
 
 .buttons > button {
