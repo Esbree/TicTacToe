@@ -1,0 +1,21 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.content {
+  margin: 50px;
+}
+
+.gameboard {
+  height: 600px;
+  width: 600px;
+  background-color: lightblue;
+  margin-top: 24px;
+  margin-bottom: 24px;
+}
+
+.buttons > button {
+  width: 100px;
+  height: 40px;
+}
