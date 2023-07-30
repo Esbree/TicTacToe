@@ -22,10 +22,19 @@ const Gameboard = (() => {
     return gameboard[index] !== '';
   };
 
+  const reset = () => {
+    for (let i = 0; i < gameboard.length; i++) {
+      gameboard[i] = '';
+    }
+
+    render();
+  };
+
   return {
     render,
     update,
     isSquareFilled,
+    reset,
   };
 })();
 
@@ -67,8 +76,6 @@ const Game = (() => {
     currentPlayerIndex = currentPlayerIndex === 0 ? 1 : 0;
   };
 
-  const reset = () => {};
-
   return {
     start,
     handleClick,
@@ -81,6 +88,6 @@ startButton.addEventListener('click', () => {
 });
 
 const resetButton = document.querySelector('#reset-button');
-startButton.addEventListener('click', () => {
-  Game.reset();
+resetButton.addEventListener('click', () => {
+  Gameboard.reset();
 });
