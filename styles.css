@@ -8,8 +8,8 @@
 }
 
 .gameboard {
-  height: 600px;
-  width: 600px;
+  height: 610px;
+  width: 610px;
   background-color: rgb(183, 183, 183);
   margin-top: 24px;
   margin-bottom: 24px;
@@ -17,15 +17,14 @@
   grid-template-columns: repeat(3, 1fr);
 }
 
-.gameboard > div {
-  border: 1px solid red;
-}
-
 .square {
   display: flex;
   justify-content: center;
   align-items: center;
   font-size: 3rem;
+  width: 200px;
+  height: 200px;
+  border: 1px solid black;
 }
 
 .buttons > button {
