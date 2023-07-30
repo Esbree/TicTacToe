@@ -10,7 +10,7 @@
 .gameboard {
   height: 600px;
   width: 600px;
-  background-color: lightblue;
+  background-color: rgb(183, 183, 183);
   margin-top: 24px;
   margin-bottom: 24px;
   display: grid;
