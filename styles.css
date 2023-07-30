@@ -21,6 +21,13 @@
   border: 1px solid red;
 }
 
+.square {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 3rem;
+}
+
 .buttons > button {
   width: 100px;
   height: 40px;
