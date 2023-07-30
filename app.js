@@ -67,6 +67,8 @@ const Game = (() => {
     currentPlayerIndex = currentPlayerIndex === 0 ? 1 : 0;
   };
 
+  const reset = () => {};
+
   return {
     start,
     handleClick,
@@ -76,4 +78,9 @@ const Game = (() => {
 const startButton = document.querySelector('#start-button');
 startButton.addEventListener('click', () => {
   Game.start();
+});
+
+const resetButton = document.querySelector('#reset-button');
+startButton.addEventListener('click', () => {
+  Game.reset();
 });
