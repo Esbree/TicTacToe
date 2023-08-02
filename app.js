@@ -23,11 +23,10 @@ const Gameboard = (() => {
   };
 
   const reset = () => {
-    for (let i = 0; i < gameboard.length; i++) {
-      gameboard[i] = '';
-    }
-
-    render();
+    document.querySelectorAll('.square').forEach((square) => {
+      square.removeEventListener('click', Game.handleClick);
+      square.remove();
+    });
   };
 
   return {
