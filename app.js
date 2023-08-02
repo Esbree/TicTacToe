@@ -29,11 +29,43 @@ const Gameboard = (() => {
     });
   };
 
+  const checkWin = () => {
+    let array = [
+      [0, 1, 2],
+      [3, 4, 5],
+      [6, 7, 8],
+      [0, 3, 6],
+      [1, 4, 7],
+      [2, 5, 8],
+      [0, 4, 8],
+      [2, 4, 6],
+    ];
+
+    for (let i = 0; i < 8; i++) {
+      if (
+        gameboard[array[i][0]] === 'X' &&
+        gameboard[array[i][1]] === 'X' &&
+        gameboard[array[i][2]] === 'X'
+      ) {
+        return 1;
+      } else if (
+        gameboard[array[i][0]] === '0' &&
+        gameboard[array[i][1]] === '0' &&
+        gameboard[array[i][2]] === '0'
+      ) {
+        return 2;
+      }
+    }
+
+    return 0;
+  };
+
   return {
     render,
     update,
     isSquareFilled,
     reset,
+    checkWin,
   };
 })();
 
@@ -73,6 +105,13 @@ const Game = (() => {
     Gameboard.update(index, players[currentPlayerIndex].mark);
 
     currentPlayerIndex = currentPlayerIndex === 0 ? 1 : 0;
+
+    if (Gameboard.checkWin() == 1) {
+      console.log('winner x');
+    }
+    if (Gameboard.checkWin() == 2) {
+      console.log('winner 0');
+    }
   };
 
   return {
