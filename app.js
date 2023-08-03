@@ -95,7 +95,14 @@ const Game = (() => {
     });
   };
 
+  const stop = () => {
+    document.querySelectorAll('.square').forEach((square) => {
+      square.removeEventListener('click', Game.handleClick);
+    });
+  };
+
   const handleClick = (event) => {
+    const winnerLabel = document.querySelector('.heading');
     let index = parseInt(event.target.id.split('-')[1]);
 
     if (Gameboard.isSquareFilled(index)) {
@@ -107,16 +114,19 @@ const Game = (() => {
     currentPlayerIndex = currentPlayerIndex === 0 ? 1 : 0;
 
     if (Gameboard.checkWin() == 1) {
-      console.log('winner x');
+      winnerLabel.innerHTML += players[0].name + ' wins!';
+      Game.stop();
     }
     if (Gameboard.checkWin() == 2) {
-      console.log('winner 0');
+      winnerLabel.innerHTML += players[1].name + ' wins!';
+      Game.stop();
     }
   };
 
   return {
     start,
     handleClick,
+    stop,
   };
 })();
 
