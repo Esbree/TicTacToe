@@ -1,3 +1,13 @@
+const displayController = (() => {
+  const renderMessage = (message) => {
+    document.querySelector('.message').innerHTML = message;
+  };
+
+  return {
+    renderMessage,
+  };
+})();
+
 const Gameboard = (() => {
   let gameboard = ['', '', '', '', '', '', '', '', ''];
 
@@ -23,10 +33,11 @@ const Gameboard = (() => {
   };
 
   const reset = () => {
-    document.querySelectorAll('.square').forEach((square) => {
-      square.removeEventListener('click', Game.handleClick);
-      square.remove();
-    });
+    for (let i = 0; i < 9; i++) {
+      update(i, '');
+    }
+    render();
+    document.querySelector('.message').innerHTML = '';
   };
 
   const checkWin = () => {
@@ -114,11 +125,11 @@ const Game = (() => {
     currentPlayerIndex = currentPlayerIndex === 0 ? 1 : 0;
 
     if (Gameboard.checkWin() == 1) {
-      winnerLabel.innerHTML += players[0].name + ' wins!';
+      displayController.renderMessage('x wins!');
       Game.stop();
     }
     if (Gameboard.checkWin() == 2) {
-      winnerLabel.innerHTML += players[1].name + ' wins!';
+      displayController.renderMessage('0 wins!');
       Game.stop();
     }
   };
