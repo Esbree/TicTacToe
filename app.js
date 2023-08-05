@@ -38,6 +38,8 @@ const Gameboard = (() => {
     }
     render();
     document.querySelector('.message').innerHTML = '';
+    document.querySelector('#player1').value = '';
+    document.querySelector('#player2').value = '';
   };
 
   const checkWin = () => {
@@ -125,11 +127,11 @@ const Game = (() => {
     currentPlayerIndex = currentPlayerIndex === 0 ? 1 : 0;
 
     if (Gameboard.checkWin() == 1) {
-      displayController.renderMessage('x wins!');
+      displayController.renderMessage(players[0].name + ' wins!');
       Game.stop();
     }
     if (Gameboard.checkWin() == 2) {
-      displayController.renderMessage('0 wins!');
+      displayController.renderMessage(players[1].name + ' wins!');
       Game.stop();
     }
   };
